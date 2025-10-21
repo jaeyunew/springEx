@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/login1")
-public class LoginServletAll extends HttpServlet {
+@WebServlet("/login2")
+public class LoginServletJs extends HttpServlet {
 
   @Override
   public void init() throws ServletException {
@@ -31,14 +31,23 @@ public class LoginServletAll extends HttpServlet {
   }
 
   private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    request.setCharacterEncoding("UTF-8");
-
-    String username = request.getParameter("user_id");
     System.out.println("doHandle 메서드 호출");
-    String password = request.getParameter("user_pwd");
-    System.out.println(username);
-    System.out.println(password);
+    request.setCharacterEncoding("UTF-8");
+    response.setContentType("text/html;charset=utf-8");
+    PrintWriter out = response.getWriter();
 
+    String user_id = request.getParameter("user_id");
+    String user_pwd = request.getParameter("user_pwd");
+    String user_address = request.getParameter("user_address");
+
+    String data = "<html>";
+    data += "<body>";
+    data += "<h1>" + user_id + "</h1>";
+    data += "<p>" + user_pwd + "</p>";
+    data += "<p>" + user_address + "</p>";
+    data += "</body>";
+    data += "</html>";
+    out.println(data);
 
   }
 }

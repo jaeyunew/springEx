@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/login1")
+public class LoginServletAll extends HttpServlet {
 
   @Override
   public void init() throws ServletException {
@@ -18,27 +18,27 @@ public class LoginServlet extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    request.setCharacterEncoding("UTF-8");
-    String username = request.getParameter("user_id");
-    String password = request.getParameter("user_pwd");
-
-    System.out.println(username);
-    System.out.println(password);
-
-    response.setContentType("text/html; charset=UTF-8");
-    response.setCharacterEncoding("UTF-8");
-
-    PrintWriter out = response.getWriter();
-    out.println("<html><body>");
-    out.println("<h1>" + "아이디 : " + username + "</h1>");
-    out.println("<h1>" + "비밀번호 : " + password + "</h1>");
-    out.println("</body></html>");
+    System.out.println("LoginServlet doPost() 메서드 호출");
+    doHandle(request, response);
   }
 
 
   @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    super.doGet(req, resp);
+    System.out.println("LoginServlet doGet() 메서드 호출");
+    doHandle(request, response);
+  }
+
+  private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    System.out.println("doHandle 메서드 호출");
+    request.setCharacterEncoding("UTF-8");
+
+    String username = request.getParameter("user_id");
+    String password = request.getParameter("user_pwd");
+    System.out.println(username);
+    System.out.println(password);
+
+
   }
 }

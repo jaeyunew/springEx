@@ -11,7 +11,7 @@
     <title>My Servlet</title>
 </head>
 <body>
-<h1>my servlet</h1>
-<a href="/my"></a>
+<h1>my servlet</h1> <br>
+<a href="/my">myServlet</a>
 </body>
 </html>
