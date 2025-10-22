@@ -27,6 +27,7 @@ dependencies {
   implementation 'org.springframework:spring-context:5.3.27'
   implementation 'org.springframework:spring-webmvc:5.3.27'
   implementation 'org.springframework:spring-test:5.3.27'
+  implementation 'mysql:mysql-connector-java:8.0.22'
 
   compileOnly 'org.projectlombok:lombok:1.18.30'
   annotationProcessor 'org.projectlombok:lombok:1.18.30'
